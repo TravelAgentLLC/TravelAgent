@@ -1,9 +1,15 @@
 const axios = require('axios');
 const jsdom = require('jsdom');
-const zlib = require('zlib');
 const puppeteer = require('puppeteer');
-const { get } = require('http');
+const NodeGeocoder = require('node-geocoder');
 const apiKey = 'AIzaSyDhLdclEEQfC6F47z-VcPpGQZPPlnwGfa8';
+
+const geocoderOptions = {
+  provider: 'google', // Which geocoding service to user
+  httpAdapter: 'https', // Default
+  apiKey: apiKey, // Most of the providers require an API key
+};
+const geocoder = NodeGeocoder(geocoderOptions);
 
 function compareRatings(a, b) {
   if (a.rating < b.rating) {
@@ -26,10 +32,17 @@ async function getPhoto(url) {
 }
 const apiController = {
   async getThingsToDo(req, res, next) {
-    let location = '10.799079,106.666475'; // location in cordinates
+    console.log(req.body.location);
+
+    const results = await geocoder.geocode(req.body.location);
+    const lat = results[0].latitude.toString();
+    const long = results[0].longitude.toString();
+    console.log(results);
+    let location = lat + ',' + long; // location in cordinates
     let radius = '1000'; // radius in meteres to search around
     let types = 'tourist_attraction'; // type of location being looked for check out the google places api for mor information (only specify 1 type)
     //let priceLevel = user specified price
+    console.log(location);
     const { data } = await axios.get(
       `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&types=${types}&key=${apiKey}`,
     );
@@ -47,22 +60,32 @@ const apiController = {
     }
     locationsArray.sort(compareRatings);
     const locationsObj = {};
+    if (locationsArray.length == 0) {
+      res.sendStatus(404);
+    }
     for (let i = 0; i <= 2; i++) {
+      console.log(locationsArray[i]);
+      console.log(i);
       const locationPhoto = await getPhoto(
         `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&maxheight=800&photo_reference=${locationsArray[i].photos[0].photo_reference}&key=${apiKey}`,
       );
+
       locationsObj[i] = {
         name: locationsArray[i].name,
         rating: locationsArray[i].rating,
         photo: locationPhoto,
       };
+      console.log(locationsObj);
     }
-    console.log(locationsObj);
-    res.locals.hotelInfo = locationsObj;
+    res.locals.locations = locationsObj;
     next();
   },
   async hotelsToStayAt(req, res, next) {
-    let location = '10.799079,106.666475'; // location in cordinates
+    const results = await geocoder.geocode(req.body.location);
+    const lat = results[0].latitude.toString();
+    const long = results[0].longitude.toString();
+    console.log(results);
+    let location = lat + ',' + long; // location in cordinates
     let radius = '1000'; // radius in meteres to search around
     let types = 'lodging'; // type of location being looked for check out the google places api for mor information (only specify 1 type)
     //let priceLevel = user specified price
@@ -108,7 +131,6 @@ const apiController = {
     //console.log(fakeHotel);
     //let hotelImage = document.querySelector('img').src;
     //console.log(hotelImage);
-    console.log(hotelsArray[0]);
     for (let i = 0; i <= 2; i++) {
       // make request to place/photo api using the photos object on location
       //   let placesApiPhotoRequest = await axios.get(
@@ -123,8 +145,6 @@ const apiController = {
         photos: photoSrc,
       };
     }
-    console.log(hotelsObj);
-    console.log(hotelsArray[0].photos[0].photo_reference);
     res.locals.topHotels = hotelsObj;
     next();
   },
