@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Vacation = require('../models/vacations');
 
 //getting all
 router.get('/', (req, res) => {
