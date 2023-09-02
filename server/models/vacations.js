@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const vacationsSchema = new Schema({
+// const vacationsSchema = new Schema({
     // user_id: Schema.Types.ObjectId
     // place: String
     // hotels: [
@@ -16,4 +16,6 @@ const vacationsSchema = new Schema({
     //     address: String,
     //   }
     // ]
-  })
+//   })
+
+// module.exports = mongoose.model('Vacation', userSchema);
