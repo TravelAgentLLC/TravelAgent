@@ -1,16 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 body{
-    display:flex;
     margin:0;
     height: 100vh;
     width: 100vw;
 }
-Canvas{
-    display:flex;
+.container {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+}
+.color {
+    font-size: 50px;
 }
 
-.color {
-    text-align: center;
-    font-size: 50px;
+.title {
+    font-family: Cinzel;
+    font-size: 75px;
+    font-style: italic;
+    color: black;
+    margin-bottom: 100px;
 }
