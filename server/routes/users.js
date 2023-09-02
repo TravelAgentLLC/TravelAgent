@@ -13,28 +13,67 @@ router.get('/', async (req, res) => {
 });
 
 //getting one user
-router.get('/:id', (req, res) => {});
+router.get('/:id', getUser, (req, res) => {
+  res.json(res.locals.user);
+});
 
 //creating one user
 router.post('/', async (req, res) => {
-    const { username, password } = req.body
-    const user = new User({
-        username,
-        password
-    })
+  const { username, password } = req.body;
+  const user = new User({
+    username,
+    password,
+  });
 
-    try {
-        const newUser = await user.save();
-        res.status(201).json(newUser);
-    } catch (err) {
-        res.status(400).json({ message: err.message })
-    }
+  try {
+    const newUser = await user.save();
+    res.status(201).json(newUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 });
 
 //updating one user
-router.patch('/:id', (req, res) => {});
+router.patch('/:id', getUser, async (req, res) => {
+    const userObj = res.locals.user
+    // console.log(userObj)
+    for (const key in userObj){
+        if (req.body[key] != null){
+            userObj[key] = req.body[key];
+        }
+    }
+
+    try {
+        const updatedUser = await userObj.save();
+        res.json(updatedUser);
+    } catch (e) {
+        res.status(400).json({ message: e.message })
+    }
+});
 
 //deleting one user
-router.delete('/:id', (req, res) => {});
+router.delete('/:id', getUser, async (req, res) => {
+  try {
+    await User.findByIdAndDelete(res.locals.user.id)
+    res.json({ message: 'Deleted User' });
+  } catch (e) {
+    res.status(500).json({ message: e.message });
+  }
+});
+
+
+//middleware functions
+async function getUser(req, res, next) {
+  try {
+    const user = await User.findById(req.params.id);
+    res.locals.user = user;
+    if (user == null) {
+      return res.status(400).json({ message: 'cannot find user' });
+    }
+    return next();
+  } catch (e) {
+    return next({ message: e.message });
+  }
+}
 
 module.exports = router;
