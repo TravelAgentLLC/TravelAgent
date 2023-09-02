@@ -12,12 +12,15 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@react-three/drei": "^9.80.9",
+        "@react-three/fiber": "^8.13.7",
         "@reduxjs/toolkit": "^1.9.5",
         "bcrypt": "^5.1.1",
         "bcryptjs": "^2.4.3",
         "concurrently": "^8.2.1",
         "cookie-parser": "^1.4.6",
         "express": "^4.18.2",
+        "gltf-pipeline": "^4.1.0",
         "mongodb": "^6.0.0",
         "mongoose": "^7.4.5",
         "react": "^18.2.0",
@@ -27,7 +30,8 @@
         "react-router-dom": "^6.15.0",
         "redux": "^4.2.1",
         "redux-thunk": "^2.4.2",
-        "sass": "^1.66.1"
+        "sass": "^1.66.1",
+        "three": "^0.156.0"
     },
     "devDependencies": {
         "@babel/core": "^7.22.11",
@@ -42,6 +46,7 @@
         "eslint-plugin-jsx-a11y": "^6.7.1",
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
+        "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.5.3",
         "mini-css-extract-plugin": "^2.7.6",
         "nodemon": "^3.0.1",

@@ -30,6 +30,17 @@ module.exports = {
   mode: process.env.NODE_ENV,
   module: {
     rules: [
+        {
+            test: /\.(glb|gltf)$/, // Match GLB and GLTF file extensions
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  outputPath: 'models/', // Output path for the files
+                },
+              },
+            ],
+          },
       {
         test: /\.jsx?/,
         exclude: /node_modules/,
