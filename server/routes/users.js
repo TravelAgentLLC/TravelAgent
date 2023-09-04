@@ -19,15 +19,16 @@ router.get('/:id', getUser, (req, res) => {
 
 //creating one user
 router.post('/', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, vacations } = req.body;
   const user = new User({
     username,
     password,
+    vacations,
   });
 
   try {
     const newUser = await user.save();
-    res.status(201).json(newUser);
+    res.status(201).json('user created!');
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -36,7 +37,6 @@ router.post('/', async (req, res) => {
 //updating one user
 router.patch('/:id', getUser, async (req, res) => {
     const userObj = res.locals.user
-    // console.log(userObj)
     for (const key in userObj){
         if (req.body[key] != null){
             userObj[key] = req.body[key];
@@ -45,7 +45,7 @@ router.patch('/:id', getUser, async (req, res) => {
 
     try {
         const updatedUser = await userObj.save();
-        res.json(updatedUser);
+        res.json('user updated!');
     } catch (e) {
         res.status(400).json({ message: e.message })
     }
