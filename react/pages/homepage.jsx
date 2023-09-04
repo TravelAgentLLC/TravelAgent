@@ -15,7 +15,7 @@ import React, {
   useEffect,
 } from 'react';
 import TextBox from '../components/TextBox';
-
+import images from '../components/images.js';
 let counter = 0;
 const HomePage = props => {
   // useEffect(() => {
@@ -35,21 +35,17 @@ const HomePage = props => {
   //   <directionalLight position={[-2, 5, 2]} intensity={1} />
   //   <Box />
   // </Canvas> */}
-
+  const [agentImage, setAgentImage] = useState(images.gladAgent);
   return (
     <div className='container'>
       <div className='title'>TravelAgent</div>
-      <img
-        src={require(`../Assets/travelAgentGirl/gladAgentGirl.png`)}
-        alt='failed'
-        className='agentGirl'
-      />
+      <img src={agentImage} alt='failed' className='agentGirl' />
       <img
         src={require('../Assets/receptionistDesk-removebg-preview.png')}
         alt='failed'
         className='desk'
       />
-      <TextBox />
+      <TextBox agentSetImage={setAgentImage} />
     </div>
   );
 };

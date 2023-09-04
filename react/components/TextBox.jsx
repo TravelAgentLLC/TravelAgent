@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { useNavigate } from 'react-router';
 import '../stylesheet/textbox.scss';
-import { set } from 'mongoose';
+import images from '../components/images.js';
 let counter = 0;
 let inputs = [];
 const TextBox = props => {
@@ -53,17 +53,17 @@ const TextBox = props => {
     },
     {
       response1: {
-        option: '1:   Sorry i perfer to travel alone',
-        agentResponse: 'Oh... thats ok. so where are you travling too',
+        option: '1: (select option 3)',
+        agentResponse: 'That sounds fun',
       },
       response2: {
-        option: '2:   Of course! travling with friends is way more fun',
-        agentResponse: 'Sweet! soooooo where are we going too',
+        option: '2:   (select option 3)',
+        agentResponse: 'That sounds fun',
       },
     },
     {
       response1: {
-        option: '1:   Sorry i perfer to travel alone',
+        option: '1:   Yes it will be a great time',
         agentResponse: 'Oh... thats ok. so where are you travling too',
       },
       response2: {
@@ -102,6 +102,8 @@ const TextBox = props => {
     setInputBox(false);
     setTextBox(dialougeTree[counter - 1].response1.agentResponse);
     counter += 1;
+    setFirstOption(dialougeTree[counter - 1].response1.option);
+    setSeconOption(dialougeTree[counter - 1].response2.option);
     inputs.push(inputValue);
     console.log(`This is ${inputs}`);
     if (inputs.length === 3) {
@@ -138,7 +140,12 @@ const TextBox = props => {
 
   useEffect(() => {
     const handleKeyDown = e => {
-      if (e.code === 'Digit1') {
+      let validInput = false;
+      console.log(e.target.type);
+      if (e.target.type === 'text') {
+        console.log('LET THE MAN TYPE');
+      } else if (e.code === 'Digit1') {
+        validInput = true;
         console.log('pressed1');
         console.log(counter);
         if (counter === 0) {
@@ -149,6 +156,7 @@ const TextBox = props => {
         counter += 1;
         console.log(counter);
       } else if (e.code === 'Digit2') {
+        validInput = true;
         if (counter === 0) {
           setTextBox('Are you excited to travel');
         } else {
@@ -157,11 +165,15 @@ const TextBox = props => {
         counter += 1;
         console.log('pressed2');
       } else if (e.code === 'Digit3') {
+        validInput = true;
         console.log('pressed3');
         setInputBox(true);
       }
-      setFirstOption(dialougeTree[counter - 1].response1.option);
-      setSeconOption(dialougeTree[counter - 1].response2.option);
+      if (validInput) {
+        props.agentSetImage(images.sadAgent);
+        setFirstOption(dialougeTree[counter - 1].response1.option);
+        setSeconOption(dialougeTree[counter - 1].response2.option);
+      }
       // updatetextBox(preset[counter])
       // counter+=1
     };
