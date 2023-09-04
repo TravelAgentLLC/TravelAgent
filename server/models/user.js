@@ -12,7 +12,51 @@ const userSchema = new mongoose.Schema({
   createdDate: {
     type: Date,
     default: Date.now,
-  }, //props will be added later
+  },
+  vacations: [
+    {
+      hotels: {
+        0: {
+          name: String,
+          rating: Number,
+          photo: String,
+        },
+        1: {
+          name: String,
+          rating: Number,
+          photo: String,
+        },
+        2: {
+          name: String,
+          rating: Number,
+          photo: String,
+        },
+      },
+      flight: {
+        0: String,
+        1: String,
+        2: String,
+      },
+      thingsToDo: {
+        0: {
+          name: String,
+          rating: Number,
+          photo: String,
+        },
+        1: {
+          name: String,
+          rating: Number,
+          photo: String,
+        },
+        2: {
+          name: String,
+          rating: Number,
+          photo: String,
+        },
+      },
+      location: String,
+    },
+  ],
 });
 
 module.exports = mongoose.model('User', userSchema);

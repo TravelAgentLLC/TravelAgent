@@ -21,10 +21,8 @@ connection.once('open', () => {
 });
 
 const usersRouter = require('./routes/users');
-const vacationsRouter = require('./routes/vacations');
 
 app.use('/api/users', usersRouter);
-app.use('/api/vacations', vacationsRouter);
 app.post(
   '/travelInfo',
   apiController.getThingsToDo,
