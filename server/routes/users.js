@@ -36,7 +36,6 @@ router.post('/', async (req, res) => {
 //updating one user
 router.patch('/:id', getUser, async (req, res) => {
     const userObj = res.locals.user
-    // console.log(userObj)
     for (const key in userObj){
         if (req.body[key] != null){
             userObj[key] = req.body[key];

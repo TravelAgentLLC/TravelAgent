@@ -12,12 +12,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-//getting one user
+//getting one vacation
 router.get('/:id', getVacations, (req, res) => {
   res.json(res.locals.vacation);
 });
 
-//creating one user
+//creating one vacation
 router.post('/', async (req, res) => {
   const { username, password } = req.body;
   const vacation = new Vacation({
@@ -33,10 +33,9 @@ router.post('/', async (req, res) => {
   }
 });
 
-//updating one user
+//updating one vacation
 router.patch('/:id', getVacations, async (req, res) => {
   const vacationObj = res.locals.vacation;
-  // console.log(userObj)
   for (const key in vacationObj) {
     if (req.body[key] != null) {
       vacationObj[key] = req.body[key];
@@ -51,7 +50,7 @@ router.patch('/:id', getVacations, async (req, res) => {
   }
 });
 
-//deleting one user
+//deleting one vacation
 router.delete('/:id', getVacations, async (req, res) => {
   try {
     await Vacation.findByIdAndDelete(res.locals.vacation.id);

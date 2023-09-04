@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   createdDate: {
     type: Date,
     default: Date.now,
-  },
+  }, //props will be added later
 });
 
 module.exports = mongoose.model('User', userSchema);
