@@ -34,10 +34,51 @@ const TextBox = props => {
         option: '1:  Yes im so excited to travel out of the country',
         agentResponse:
           'YAY! I love travling out of the country! You are taking me with you right?',
+        image: 'path/path',
       },
       response2: {
         option: '2:  Yes i can wait to see a new place',
         agentResponse: 'I love exploring new places we should go together',
+      },
+    },
+    {
+      response1: {
+        option: '1:   Sorry i perfer to travel alone',
+        agentResponse: 'Oh... thats ok. so where are you travling too',
+      },
+      response2: {
+        option: '2:   Of course! travling with friends is way more fun',
+        agentResponse: 'Sweet! soooooo where are we going too',
+      },
+    },
+    {
+      response1: {
+        option: '1:   Sorry i perfer to travel alone',
+        agentResponse: 'Oh... thats ok. so where are you travling too',
+      },
+      response2: {
+        option: '2:   Of course! travling with friends is way more fun',
+        agentResponse: 'Sweet! soooooo where are we going too',
+      },
+    },
+    {
+      response1: {
+        option: '1:   Sorry i perfer to travel alone',
+        agentResponse: 'Oh... thats ok. so where are you travling too',
+      },
+      response2: {
+        option: '2:   Of course! travling with friends is way more fun',
+        agentResponse: 'Sweet! soooooo where are we going too',
+      },
+    },
+    {
+      response1: {
+        option: '1:   Sorry i perfer to travel alone',
+        agentResponse: 'Oh... thats ok. so where are you travling too',
+      },
+      response2: {
+        option: '2:   Of course! travling with friends is way more fun',
+        agentResponse: 'Sweet! soooooo where are we going too',
       },
     },
     {
@@ -62,23 +103,34 @@ const TextBox = props => {
     setTextBox(dialougeTree[counter - 1].response1.agentResponse);
     counter += 1;
     inputs.push(inputValue);
-    console.log(inputs);
+    console.log(`This is ${inputs}`);
     if (inputs.length === 3) {
+      console.log('it worked');
       try {
         const response = await fetch('http://localhost:3000/travelInfo', {
           method: 'POST',
-          headers: 'application/json',
-          body: JSON.stringify({ location: inputs[0], activities: inputs[2] }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            location: inputs[0],
+            returnDate: inputs[1],
+            leaveDate: inputs[2],
+          }),
         });
         if (response.ok) {
+          console.log('res is ok');
           const parsed = await response.json();
-          props.data(parsed);
-          console.log(response);
-          navigate('/display');
+          // props.data(parsed);
+          console.log(parsed);
+          // props.setfetchData(parsed);
+          // console.log(`This is correct: ${props.fetchData}`);
+          navigate('/display', { state: parsed });
         } else {
           console.log('error gg');
         }
       } catch (err) {
+        console.log(err);
         console.log('error fetching data');
       }
     }
@@ -122,7 +174,6 @@ const TextBox = props => {
   return (
     <div className='textbox'>
       <h1 className='animateText'>{textBox}</h1>
-
       {/* <h1 className="animateText">{textBox}</h1> */}
       <ul>
         <li>{firstOption}</li>

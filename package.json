@@ -20,6 +20,7 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^8.2.1",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "gltf-pipeline": "^4.1.0",
     "jsdom": "^22.1.0",
     "mongodb": "^6.0.0",
