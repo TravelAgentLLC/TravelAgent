@@ -1,13 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const apiController = require('./controllers/apiController');
-
+const path = require('path');
+var cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, 'build')));
 
 const uri = process.env.ATLAS_URI; //uri is defined from .env file as var "ATLAS_URI"
 mongoose.connect(uri);

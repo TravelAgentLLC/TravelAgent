@@ -25,22 +25,28 @@ module.exports = {
       directory: path.resolve(__dirname, 'build'),
       publicPath: '/',
     },
+    proxy: {
+      '/travelInfo': {
+        target: 'http://localhost:3000',
+        secure: false,
+      },
+    },
     historyApiFallback: true,
   },
   mode: process.env.NODE_ENV,
   module: {
     rules: [
-        {
-            test: /\.(glb|gltf)$/, // Match GLB and GLTF file extensions
-            use: [
-              {
-                loader: 'file-loader',
-                options: {
-                  outputPath: 'models/', // Output path for the files
-                },
-              },
-            ],
+      {
+        test: /\.(bin|glb|gltf)$/, // Match GLB and GLTF file extensions
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'public', // Output path for the files
+            },
           },
+        ],
+      },
       {
         test: /\.jsx?/,
         exclude: /node_modules/,
@@ -54,6 +60,10 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.png/,
+        type: 'asset/resource',
       },
     ],
   },

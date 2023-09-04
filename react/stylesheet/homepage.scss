@@ -2,27 +2,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Lobster+Two&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-body{
-    margin:0;
-    height: 100vh;
-    width: 100vw;
+body {
+  margin: 0;
+  // height: 100vh;
+  // width: 100vw;
+  max-height: 100%;
+  background-image: url('https://assets-global.website-files.com/5b15d605b7c459fc409872b5/63eaea2770fa5f19d0680dfb_61a90ec54f1bbda94927fee0_copernico-p_kICQCOM4s-unsplash.jpeg');
 }
+
+.textbox {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  align-items: flex-start;
+  height: 30vh;
+  width: 50vw;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-bottom: 200px;
+}
+
+// Canvas {
+//   position: fixed;
+//   width: 50vw;
+//   height: 50vh;
+// }
+
 .container {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:space-between;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50vh;
+  justify-content: space-between;
 }
 .color {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .title {
-    font-family: Cinzel;
-    font-size: 75px;
-    font-style: italic;
-    color: black;
-    margin-bottom: 100px;
+  font-family: Cinzel;
+  font-size: 75px;
+  font-style: italic;
+  color: black;
+  margin-bottom: 100px;
+}
+
+.agentGirl {
+  position: absolute;
+  top: 100px;
+  height: 500px;
+  width: 500px;
+}
+.desk {
+  position: absolute;
+  max-width: 100%;
+  top: 350px;
+
+  // bottom: 250px;
 }

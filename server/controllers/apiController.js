@@ -35,7 +35,6 @@ async function getPhoto(url) {
 const apiController = {
   async getThingsToDo(req, res, next) {
     console.log(req.body.location);
-
     const results = await geocoder.geocode(req.body.location);
     const lat = results[0].latitude.toString();
     const long = results[0].longitude.toString();
