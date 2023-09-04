@@ -33,6 +33,7 @@ app.post(
       hotels: res.locals.topHotels,
       thingsToDo: res.locals.locations,
       flights: res.locals.flightsInfo,
+      location: req.body.location,
     });
   },
 );

@@ -15,6 +15,12 @@ const userSchema = new mongoose.Schema({
   },
   vacations: [
     {
+      _id: false,
+      flights: {
+        0: String,
+        1: String,
+        2: String,
+      },
       hotels: {
         0: {
           name: String,
@@ -31,11 +37,6 @@ const userSchema = new mongoose.Schema({
           rating: Number,
           photo: String,
         },
-      },
-      flight: {
-        0: String,
-        1: String,
-        2: String,
       },
       thingsToDo: {
         0: {

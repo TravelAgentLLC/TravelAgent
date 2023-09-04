@@ -124,6 +124,20 @@ const TextBox = props => {
           console.log('res is ok');
           const parsed = await response.json();
           // props.data(parsed);
+          const response2 = await fetch(
+            'http://localhost:3000/api/users/update',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                userId: window.localStorage.getItem('user_id'),
+                vacation: parsed,
+              }),
+            },
+          );
+          console.log(response2);
           console.log(parsed);
           // props.setfetchData(parsed);
           // console.log(`This is correct: ${props.fetchData}`);
