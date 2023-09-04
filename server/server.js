@@ -40,9 +40,6 @@ app.listen(port, () => {
   console.log(`listening on port ${port}.`);
 });
 
-//location : string
-//name: user name string
-
 //ATLAS USERNAME AND PASSWORDS
 
 //user: Preston

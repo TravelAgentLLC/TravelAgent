@@ -19,10 +19,11 @@ router.get('/:id', getUser, (req, res) => {
 
 //creating one user
 router.post('/', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, vacations } = req.body;
   const user = new User({
     username,
     password,
+    vacations,
   });
 
   try {
@@ -44,7 +45,7 @@ router.patch('/:id', getUser, async (req, res) => {
 
     try {
         const updatedUser = await userObj.save();
-        res.json('user created!');
+        res.json('user updated!');
     } catch (e) {
         res.status(400).json({ message: e.message })
     }
