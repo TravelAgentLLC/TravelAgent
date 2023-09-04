@@ -32,8 +32,8 @@ app.post(
   apiController.getFlights,
   (req, res) => {
     res.status(200).json({
-      hotels: res.locals.locations,
-      thingsToDo: res.locals.topHotels,
+      hotels: res.locals.topHotels,
+      thingsToDo: res.locals.locations,
       flights: res.locals.flightsInfo,
     });
   },

@@ -30,6 +30,7 @@ async function getPhoto(url) {
   const data = await page.evaluate(function () {
     return document.querySelector('img').src;
   });
+  await browser.close();
   return data;
 }
 const apiController = {
@@ -141,6 +142,7 @@ const apiController = {
       return outputObj;
     });
     res.locals.flightsInfo = data;
+    await browser.close();
     next();
   },
   async hotelsToStayAt(req, res, next) {
