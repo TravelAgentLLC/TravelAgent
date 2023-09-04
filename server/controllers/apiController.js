@@ -4,6 +4,8 @@ const puppeteer = require('puppeteer');
 const NodeGeocoder = require('node-geocoder');
 const apiKey = 'AIzaSyDhLdclEEQfC6F47z-VcPpGQZPPlnwGfa8';
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 const geocoderOptions = {
   provider: 'google', // Which geocoding service to user
   httpAdapter: 'https', // Default
@@ -78,6 +80,68 @@ const apiController = {
       console.log(locationsObj);
     }
     res.locals.locations = locationsObj;
+    next();
+  },
+  async getFlights(req, res, next) {
+    const location = req.body.location;
+    const leaveDate = req.body.leaveDate;
+    const returnDate = req.body.returnDate;
+    console.log(location, leaveDate, returnDate);
+    const browser = await puppeteer.launch({
+      headless: 'new',
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        `--window-size=1920,1080`,
+      ],
+      defaultViewport: {
+        width: 1920,
+        height: 1080,
+      },
+    });
+    console.log('hiiiii');
+    // go to specified url
+    const page = await browser.newPage();
+    await page.goto('https://www.google.com/travel/flights?hl=en-US');
+    await delay(1000);
+    await page.keyboard.type(location);
+    await page.keyboard.press('Tab');
+    await delay(200);
+    await page.keyboard.press('Tab');
+    await delay(200);
+    await page.keyboard.press('ArrowDown');
+    await delay(200);
+    await page.keyboard.press('Enter');
+    await delay(200);
+    await page.keyboard.press('Tab');
+    await delay(200);
+    await page.keyboard.type(leaveDate);
+    await delay(200);
+    await page.keyboard.press('Tab');
+    await page.keyboard.type(returnDate);
+    await page.keyboard.press('Tab');
+    await delay(200);
+    await page.keyboard.press('Tab');
+    await delay(200);
+    await page.keyboard.press('Enter');
+    await delay(3000);
+    // await page.keyboard.press('Tab');
+    // await delay(200);
+    // await page.keyboard.type('05/29');
+    // await delay(5000);
+    // console.log('h');
+    // await page.keyboard.press('Enter');
+    // await page.keyboard.press('Tab');
+    const data = await page.evaluate(function () {
+      const outputObj = {};
+      const arrayOfFlights = document.querySelectorAll('.pIav2d');
+      for (let i = 0; i <= 2; i++) {
+        outputObj[i] =
+          arrayOfFlights[i].firstChild.firstChild.getAttribute('aria-label');
+      }
+      return outputObj;
+    });
+    res.locals.flightsInfo = data;
     next();
   },
   async hotelsToStayAt(req, res, next) {

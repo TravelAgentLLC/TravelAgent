@@ -26,10 +26,12 @@ app.post(
   '/travelInfo',
   apiController.getThingsToDo,
   apiController.hotelsToStayAt,
+  apiController.getFlights,
   (req, res) => {
     res.status(200).json({
       hotels: res.locals.locations,
       thingsToDo: res.locals.topHotels,
+      flights: res.locals.flightsInfo,
     });
   },
 );
