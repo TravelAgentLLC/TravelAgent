@@ -30,6 +30,19 @@ module.exports = {
         target: 'http://localhost:3000',
         secure: false,
       },
+      '/api/users/*': {
+        target: 'http://localhost:3000',
+        secure: false,
+      },
+      // '/api/login': {
+      //   target: 'http://localhost:3000',
+      //   secure: false,
+      // },
+      // proxy: {
+      //   '/api/*': {
+      //     target: 'http://localhost:3000',
+      //     secure: false,
+      //   },
     },
     historyApiFallback: true,
   },
