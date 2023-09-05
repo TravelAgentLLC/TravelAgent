@@ -6,18 +6,22 @@ body {
   margin: 0;
   // height: 100vh;
   // width: 100vw;
-  max-height: 100%;
-  background-image: url('https://assets-global.website-files.com/5b15d605b7c459fc409872b5/63eaea2770fa5f19d0680dfb_61a90ec54f1bbda94927fee0_copernico-p_kICQCOM4s-unsplash.jpeg');
+  // max-height: 100%;
+  background-size: cover;
+  background-image: url('https://e1.pxfuel.com/desktop-wallpaper/19/306/desktop-wallpaper-cityscape-building-anime-office-scenic-office-anime.jpg');
 }
-
+ 
 .textbox {
   display: flex;
   flex-direction: column;
+  color: white;
+  font-weight: bold;
   justify-self: flex-end;
   align-items: flex-start;
   height: 30vh;
   width: 50vw;
   border: 1px solid black;
+  background-color: rgba($color: #3C4369, $alpha: 0.5);
   border-radius: 20px;
   margin-bottom: 200px;
 }
@@ -43,10 +47,14 @@ body {
 }
 
 .title {
-  font-family: Cinzel;
-  font-size: 75px;
+  font-family: Balsamiq sans;
+  -webkit-text-fill-color: pink;
+  -webkit-text-stroke-color: rgb(224, 232, 245);
+  -webkit-text-stroke-width: 1px;  
+  padding-top: 15px;
+  font-size: 90px;
   font-style: italic;
-  color: black;
+  color: white;
   margin-bottom: 100px;
 }
 
