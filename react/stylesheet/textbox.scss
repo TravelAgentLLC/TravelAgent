@@ -1,0 +1,55 @@
+.animateText {
+  margin-top: 0px;
+  // margin-bottom: 0px;
+  width: 100%;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end);
+  white-space: nowrap; 
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-family: 'Courier';
+  font-size: 16px;
+  margin: 10px 0 0 10px;
+  padding: 5px;
+  padding-left: 30px;
+  padding-top: 0px;
+}
+
+
+// p{
+//     color: Pink;
+//     font-family: "Courier";
+//     font-size: 20px;
+//     margin: 10px 0 0 10px;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     width: 30em;
+//     animation: type 4s steps(60, end);
+//   }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 0px;
+  font-size: 14px;
+  height: 150px;
+  width: 90%;
+  list-style-type: none;
+  padding-left: 25px;
+}
+
+li {
+  border: 1px solid transparent;
+  background-color: rgba(128, 128, 128, 0);
+  border-radius: 20px;
+  transition: background-color 0.5s ease-in;
+  &:hover {
+    background-color: rgba(255, 255, 255,0.2);;
+    cursor: pointer;
+  }
+}

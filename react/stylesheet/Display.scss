@@ -1,0 +1,117 @@
+.contain {
+  background-color: black;
+  background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2312&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 85px;
+}
+.navBar {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background-color: rgba(128, 128, 128, 0.46);
+  color: white;
+  margin-top: 30px;
+  padding-left: 40px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 40px;
+  font-size: 60px;
+  font-weight: bold;
+  font-style: italic;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+.travelBox {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  color: white;
+  justify-content: space-evenly;
+  //    border: 1px solid red;
+  width: 100%;
+  height: 70%;
+}
+
+.itinerary {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background-color: rgba(128, 128, 128, 0.46);
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 5px solid white;
+  font-style: italic;
+  width: 30%;
+  text-align: center;
+  // overflow-y: scroll;
+}
+.header {
+  color: white;
+  margin: 0px;
+  margin-bottom: -27px;
+  margin-top: -17px;
+  padding: 0px;
+}
+#hotelComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+}
+#hotelComponent h4,
+#hotelComponent p {
+  margin: 0px;
+}
+#flightComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  font-size: 20px;
+}
+#flightComponent h4,
+#flightComponent p {
+  margin: 0px;
+}
+
+.expand {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navContain {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.next {
+  margin-top: 30px;
+  align-self: center;
+  height: 10vh;
+  width: 10vw;
+  border: 5px solid white;
+  font-style: italic;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.46);
+  font-size: 15px;
+  cursor: pointer;
+}

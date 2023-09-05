@@ -1,0 +1,11 @@
+Model Information:
+* title:	Celeste - Animal Crossing New Horizons
+* source:	https://sketchfab.com/3d-models/celeste-animal-crossing-new-horizons-2f328b60753b4b88b246fe18963d98e5
+* author:	Ines (https://sketchfab.com/inessaid)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Celeste - Animal Crossing New Horizons" (https://sketchfab.com/3d-models/celeste-animal-crossing-new-horizons-2f328b60753b4b88b246fe18963d98e5) by Ines (https://sketchfab.com/inessaid) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

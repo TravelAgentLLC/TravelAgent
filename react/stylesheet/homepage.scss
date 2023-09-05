@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+  margin: 0;
+  // height: 100vh;
+  // width: 100vw;
+  // max-height: 100%;
+  background-size: cover;
+  background-image: url('https://e1.pxfuel.com/desktop-wallpaper/19/306/desktop-wallpaper-cityscape-building-anime-office-scenic-office-anime.jpg');
+}
+ 
+.textbox {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  justify-self: flex-end;
+  align-items: flex-start;
+  height: 30vh;
+  width: 50vw;
+  border: 1px solid black;
+  background-color: rgba($color: #3C4369, $alpha: 0.5);
+  border-radius: 20px;
+  margin-bottom: 200px;
+}
+
+// Canvas {
+//   position: fixed;
+//   width: 50vw;
+//   height: 50vh;
+// }
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50vh;
+  justify-content: space-between;
+}
+.color {
+  font-size: 50px;
+}
+
+.title {
+  font-family: Balsamiq sans;
+  -webkit-text-fill-color: pink;
+  -webkit-text-stroke-color: rgb(224, 232, 245);
+  -webkit-text-stroke-width: 1px;  
+  padding-top: 15px;
+  font-size: 90px;
+  font-style: italic;
+  color: white;
+  margin-bottom: 100px;
+}
+
+.agentGirl {
+  position: absolute;
+  top: 100px;
+  height: 500px;
+  width: 500px;
+}
+.desk {
+  position: absolute;
+  max-width: 100%;
+  top: 350px;
+
+  // bottom: 250px;
+}
