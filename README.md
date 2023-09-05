@@ -11,3 +11,4 @@ Travel Agent App
 3. users can input whatever they want in the input boxes which can cause erros it also doesnt even say what the format should be
 4. if u get to the end of the dialouge the app crashes
 5. we tried to make out text animated but it only works on the first call and it looks a bit strange
+6. our backend has negative error handaling the front end should probably not crash when errors happen and should let the user know what went wrong
