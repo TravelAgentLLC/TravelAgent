@@ -41,7 +41,7 @@ const apiController = {
     const long = results[0].longitude.toString();
     console.log(results);
     let location = lat + ',' + long; // location in cordinates
-    let radius = '1000'; // radius in meteres to search around
+    let radius = '10000'; // radius in meteres to search around
     let types = 'tourist_attraction'; // type of location being looked for check out the google places api for mor information (only specify 1 type)
     //let priceLevel = user specified price
     console.log(location);
@@ -54,7 +54,7 @@ const apiController = {
       //sorts out non places and buisness with less than 10 reviwes
       if (
         !data.results[location].hasOwnProperty('user_ratings_total') ||
-        data.results[location].user_ratings_total < 10
+        data.results[location].user_ratings_total < 30
       ) {
         continue;
       }
@@ -134,7 +134,9 @@ const apiController = {
     // await page.keyboard.press('Tab');
     const data = await page.evaluate(function () {
       const outputObj = {};
+      console.log('hii');
       const arrayOfFlights = document.querySelectorAll('.pIav2d');
+      console.log(arrayOfFlights);
       for (let i = 0; i <= 2; i++) {
         outputObj[i] =
           arrayOfFlights[i].firstChild.firstChild.getAttribute('aria-label');
@@ -151,7 +153,7 @@ const apiController = {
     const long = results[0].longitude.toString();
     console.log(results);
     let location = lat + ',' + long; // location in cordinates
-    let radius = '1000'; // radius in meteres to search around
+    let radius = '10000'; // radius in meteres to search around
     let types = 'lodging'; // type of location being looked for check out the google places api for mor information (only specify 1 type)
     //let priceLevel = user specified price
     let { data } = await axios.get(
@@ -162,7 +164,7 @@ const apiController = {
       //sorts out non places and buisness with less than 10 reviwes
       if (
         !data.results[hotel].hasOwnProperty('user_ratings_total') ||
-        data.results[hotel].user_ratings_total < 10
+        data.results[hotel].user_ratings_total < 30
       ) {
         continue;
       }
