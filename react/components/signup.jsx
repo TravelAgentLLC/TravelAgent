@@ -39,14 +39,14 @@ const Signup = props => {
         <input
           name='username'
           type='text'
-          placeholder='username'
+          placeholder='username...'
           onChange={handleUserChange}
           className='input-field'></input>
         <br />
         <input
           name='password'
           type='password'
-          placeholder='password'
+          placeholder='password...'
           onChange={handlePasswordChange}
           className='input-field'></input>
         <br />

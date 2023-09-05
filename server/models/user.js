@@ -25,17 +25,17 @@ const userSchema = new mongoose.Schema({
         0: {
           name: String,
           rating: Number,
-          photo: String,
+          photos: String,
         },
         1: {
           name: String,
           rating: Number,
-          photo: String,
+          photos: String,
         },
         2: {
           name: String,
           rating: Number,
-          photo: String,
+          photos: String,
         },
       },
       thingsToDo: {
