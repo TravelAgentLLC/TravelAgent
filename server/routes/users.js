@@ -94,7 +94,7 @@ router.post('/deletevacation', async (req, res) => {
   }
 });
 
-//fetching all vacations of user
+//fetching all past vacations of user
 router.post('/pastvacations', async (req, res) => {
   const { userId } = req.body;
   try {

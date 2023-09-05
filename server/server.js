@@ -20,6 +20,7 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully!');
 });
 
+//Routers here:
 const usersRouter = require('./routes/users');
 
 app.use('/api/users', usersRouter);
@@ -37,22 +38,10 @@ app.post(
     });
   },
 );
+
+
 app.listen(port, () => {
   console.log(`listening on port ${port}.`);
 });
 
-//ATLAS USERNAME AND PASSWORDS
 
-//user: Preston
-//password: 9tDM0uGw2ay9uBCG
-
-//user: Quinn
-//password: TOCkTqry8O79xSHN
-
-//user: Josh
-//password: d32LFhqNxHux5ThR
-
-//user: Ayden
-//password: JG671QRbQCdJdCwm
-
-//URI: mongodb+srv://<username>:<password>@travelagentllc.ibwyhrl.mongodb.net/?retryWrites=true&w=majority

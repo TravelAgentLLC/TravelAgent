@@ -9,6 +9,8 @@ import React, {
 import { useNavigate } from 'react-router';
 import '../stylesheet/textbox.scss';
 import images from '../components/images.js';
+import voicelines from '../components/voiceLines.js';
+import voiceLines from '../components/voiceLines.js';
 let counter = 0;
 let inputs = [];
 const TextBox = props => {
@@ -35,11 +37,13 @@ const TextBox = props => {
         agentResponse:
           'YAY! I love travling out of the country! You are taking me with you right?',
         image: images.happyAgent,
+        voiceline: voiceLines.voiceline3,
       },
       response2: {
         option: `2:  Yes I can't wait to see a new place`,
         agentResponse: 'I love exploring new places... we should go together',
         image: images.shyAgent,
+        voiceline: voiceLines.voiceline4,
       },
     },
     {
@@ -47,11 +51,13 @@ const TextBox = props => {
         option: '1:   Sorry i perfer to travel alone',
         agentResponse: 'OMG of course so where are you travling too',
         image: images.embarassedAgent,
+        voiceline: voiceLines.voiceline5,
       },
       response2: {
         option: '2:   fo sho shawty',
         agentResponse: 'fo sho shawty?... soooooo where are we going too',
         image: images.confusedAgent,
+        voiceline: voiceLines.voiceline6,
       },
     },
     {
@@ -59,11 +65,13 @@ const TextBox = props => {
         option: '1: (select option 3)',
         agentResponse: `i've always wanted to go there when are you leaving`,
         image: images.gladAgent,
+        voiceline: voiceLines.voiceline7,
       },
       response2: {
         option: '2:   (select option 3)',
         agentResponse: 'That sounds fun',
         image: images.thinkingAgent,
+        voiceline: voiceLines.voiceline7,
       },
     },
     {
@@ -71,11 +79,13 @@ const TextBox = props => {
         option: '1:   (select option 3)',
         agentResponse: 'We should hangout before then',
         image: images.gladAgent,
+        voiceline: voiceLines.voiceline8,
       },
       response2: {
         option: '2:   (select option 3)',
         agentResponse: 'Sweet! soooooo where are we going too',
         image: images.gladAgent,
+        voiceline: voiceLines.voiceline8,
       },
     },
     {
@@ -83,12 +93,14 @@ const TextBox = props => {
         option: '1:   ew, i dont wanna hangout with you ',
         agentResponse: 'rude. when are you coming back so i can ignore you.',
         image: images.sadAgent,
+        voiceline: voiceLines.voiceline9,
       },
       response2: {
         option: '2:   oh we can go on a date',
         agentResponse:
           'OMG YAY! when do you come back from the trip so we can have our date then?',
         image: images.blushingAgent,
+        voiceline: voiceLines.voiceline10,
       },
     },
     {
@@ -97,12 +109,14 @@ const TextBox = props => {
         agentResponse:
           'Please wait while i plan your trip (this will take a sec)',
         image: images.thinkingAgent,
+        voiceline: voiceLines.voiceline11,
       },
       response2: {
         option: '2:   (select option 3)',
         agentResponse:
           'Please wait while i plan your trip (this will take a sec)',
         image: images.thinkingAgent,
+        voiceline: voiceLines.voiceline11,
       },
     },
     {
@@ -111,12 +125,14 @@ const TextBox = props => {
         agentResponse:
           'Please wait while i plan your trip (this will take a sec)',
         image: images.thinkingAgent,
+        voiceline: voiceLines.voiceline11,
       },
       response2: {
         option: '2:   please wait',
         agentResponse:
           'Please wait while i plan your trip (this will take a sec)',
         image: images.thinkingAgent,
+        voiceline: voiceLines.voiceline11,
       },
     },
   ];
@@ -130,8 +146,15 @@ const TextBox = props => {
     const input = e.target.input.value;
     setInputBox(false);
     if (counter === 0) {
+      let audio = new Audio(voiceLines.voiceline2);
+      audio.play();
+      let music = new Audio(voiceLines.bgMusic);
+      music.play();
+      music.volume = 0.2;
       setTextBox('Are you excited to travel');
     } else {
+      let audio = new Audio(dialougeTree[counter - 1].response1.voiceline);
+      audio.play();
       props.agentSetImage(dialougeTree[counter - 1].response1.image);
       setTextBox(dialougeTree[counter - 1].response1.agentResponse);
     }
@@ -199,7 +222,14 @@ const TextBox = props => {
         console.log(counter);
         if (counter === 0) {
           setTextBox('Are you excited to travel');
+          let audio = new Audio(voiceLines.voiceline2);
+          audio.play();
+          let music = new Audio(voiceLines.bgMusic);
+          music.play();
+          music.volume = 0.2;
         } else {
+          let audio = new Audio(dialougeTree[counter - 1].response1.voiceline);
+          audio.play();
           props.agentSetImage(dialougeTree[counter - 1].response1.image);
           setTextBox(dialougeTree[counter - 1].response1.agentResponse);
         }
@@ -209,7 +239,14 @@ const TextBox = props => {
         validInput = true;
         if (counter === 0) {
           setTextBox('Are you excited to travel');
+          let audio = new Audio(voiceLines.voiceline2);
+          audio.play();
+          let music = new Audio(voiceLines.bgMusic);
+          music.play();
+          music.volume = 0.2;
         } else {
+          let audio = new Audio(dialougeTree[counter - 1].response2.voiceline);
+          audio.play();
           props.agentSetImage(dialougeTree[counter - 1].response2.image);
           setTextBox(dialougeTree[counter - 1].response2.agentResponse);
         }

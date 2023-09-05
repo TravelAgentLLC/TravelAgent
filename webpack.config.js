@@ -34,10 +34,10 @@ module.exports = {
         target: 'http://localhost:3000',
         secure: false,
       },
-      // '/api/login': {
-      //   target: 'http://localhost:3000',
-      //   secure: false,
-      // },
+      '/api/login': {
+        target: 'http://localhost:3000',
+        secure: false,
+      },
       // proxy: {
       //   '/api/*': {
       //     target: 'http://localhost:3000',
@@ -77,6 +77,10 @@ module.exports = {
       {
         test: /\.png/,
         type: 'asset/resource',
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
       },
     ],
   },

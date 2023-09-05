@@ -1,0 +1,48 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.Ucontainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2621&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  gap: 25px;
+}
+
+.Profile {
+  padding-top: 30px;
+  margin-top: 25px;
+  color: rgb(44, 30, 30);
+  font-weight: bolder;
+  width: 50vw;
+  height: 10vh;
+  background-color: rgba(128, 128, 128, 0.367);
+  text-align: center;
+  font-size: 40px;
+  border-radius: 20px;
+  box-shadow: 3px 5px 10px black;
+}
+
+.prevTrips {
+  height: 70vh;
+  width: 50vw;
+  text-align: center;
+  padding-top: 25px;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.367);
+  border-radius: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: italic;
+  box-shadow: 3px 5px 10px black;
+}
+
+.loadB{
+  
+}

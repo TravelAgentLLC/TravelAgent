@@ -48,6 +48,8 @@
     rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   background-color: rgba(128, 128, 128, 0.46);
   padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 20px;
   font-weight: bold;
   border-radius: 10px;
@@ -55,11 +57,13 @@
   font-style: italic;
   width: 30%;
   text-align: center;
+  // overflow-y: scroll;
 }
-h1 {
+.header {
+  color: white;
   margin: 0px;
-  margin-bottom: -20px;
-  margin-top: -10px;
+  margin-bottom: -27px;
+  margin-top: -17px;
   padding: 0px;
 }
 #hotelComponent {
@@ -90,4 +94,24 @@ h1 {
   cursor: pointer;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.navContain {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.next {
+  margin-top: 30px;
+  align-self: center;
+  height: 10vh;
+  width: 10vw;
+  border: 5px solid white;
+  font-style: italic;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.46);
+  font-size: 15px;
+  cursor: pointer;
 }
