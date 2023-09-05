@@ -12,3 +12,4 @@ Travel Agent App
 4. if u get to the end of the dialouge the app crashes
 5. we tried to make out text animated but it only works on the first call and it looks a bit strange
 6. our backend has negative error handaling the front end should probably not crash when errors happen and should let the user know what went wrong
+7. we made sure adding more dialogue is easy so go crazy if you wanna expand the lore
