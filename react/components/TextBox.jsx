@@ -34,61 +34,89 @@ const TextBox = props => {
         option: '1:  Yes im so excited to travel out of the country',
         agentResponse:
           'YAY! I love travling out of the country! You are taking me with you right?',
-        image: 'path/path',
+        image: images.happyAgent,
       },
       response2: {
-        option: '2:  Yes i can wait to see a new place',
-        agentResponse: 'I love exploring new places we should go together',
+        option: `2:  Yes I can't wait to see a new place`,
+        agentResponse: 'I love exploring new places... we should go together',
+        image: images.shyAgent,
       },
     },
     {
       response1: {
         option: '1:   Sorry i perfer to travel alone',
-        agentResponse: 'Oh... thats ok. so where are you travling too',
+        agentResponse: 'OMG of course so where are you travling too',
+        image: images.embarassedAgent,
       },
       response2: {
-        option: '2:   Of course! travling with friends is way more fun',
-        agentResponse: 'Sweet! soooooo where are we going too',
+        option: '2:   fo sho shawty',
+        agentResponse: 'fo sho shawty?... soooooo where are we going too',
+        image: images.confusedAgent,
       },
     },
     {
       response1: {
         option: '1: (select option 3)',
-        agentResponse: 'That sounds fun',
+        agentResponse: `i've always wanted to go there when are you leaving`,
+        image: images.gladAgent,
       },
       response2: {
         option: '2:   (select option 3)',
         agentResponse: 'That sounds fun',
+        image: images.thinkingAgent,
       },
     },
     {
       response1: {
-        option: '1:   Yes it will be a great time',
-        agentResponse: 'Oh... thats ok. so where are you travling too',
+        option: '1:   (select option 3)',
+        agentResponse: 'We should hangout before then',
+        image: images.gladAgent,
       },
       response2: {
-        option: '2:   Of course! travling with friends is way more fun',
+        option: '2:   (select option 3)',
         agentResponse: 'Sweet! soooooo where are we going too',
+        image: images.gladAgent,
       },
     },
     {
       response1: {
-        option: '1:   Sorry i perfer to travel alone',
-        agentResponse: 'Oh... thats ok. so where are you travling too',
+        option: '1:   ew, i dont wanna hangout with you ',
+        agentResponse: 'rude. when are you coming back so i can ignore you.',
+        image: images.sadAgent,
       },
       response2: {
-        option: '2:   Of course! travling with friends is way more fun',
-        agentResponse: 'Sweet! soooooo where are we going too',
+        option: '2:   oh we can go on a date',
+        agentResponse:
+          'OMG YAY! when do you come back from the trip so we can have our date then?',
+        image: images.blushingAgent,
       },
     },
     {
       response1: {
-        option: '1:   Sorry i perfer to travel alone',
-        agentResponse: 'Oh... thats ok. so where are you travling too',
+        option: '1:   (select option 3)',
+        agentResponse:
+          'Please wait while i plan your trip (this will take a sec)',
+        image: images.thinkingAgent,
       },
       response2: {
-        option: '2:   Of course! travling with friends is way more fun',
-        agentResponse: 'Sweet! soooooo where are we going too',
+        option: '2:   (select option 3)',
+        agentResponse:
+          'Please wait while i plan your trip (this will take a sec)',
+        image: images.thinkingAgent,
+      },
+    },
+    {
+      response1: {
+        option: '1:   please wait',
+        agentResponse:
+          'Please wait while i plan your trip (this will take a sec)',
+        image: images.thinkingAgent,
+      },
+      response2: {
+        option: '2:   please wait',
+        agentResponse:
+          'Please wait while i plan your trip (this will take a sec)',
+        image: images.thinkingAgent,
       },
     },
   ];
@@ -104,6 +132,7 @@ const TextBox = props => {
     if (counter === 0) {
       setTextBox('Are you excited to travel');
     } else {
+      props.agentSetImage(dialougeTree[counter - 1].response1.image);
       setTextBox(dialougeTree[counter - 1].response1.agentResponse);
     }
     counter += 1;
@@ -122,8 +151,8 @@ const TextBox = props => {
           },
           body: JSON.stringify({
             location: inputs[0],
-            returnDate: inputs[1],
-            leaveDate: inputs[2],
+            returnDate: inputs[2],
+            leaveDate: inputs[1],
           }),
         });
         if (response.ok) {
@@ -171,6 +200,7 @@ const TextBox = props => {
         if (counter === 0) {
           setTextBox('Are you excited to travel');
         } else {
+          props.agentSetImage(dialougeTree[counter - 1].response1.image);
           setTextBox(dialougeTree[counter - 1].response1.agentResponse);
         }
         counter += 1;
@@ -180,6 +210,7 @@ const TextBox = props => {
         if (counter === 0) {
           setTextBox('Are you excited to travel');
         } else {
+          props.agentSetImage(dialougeTree[counter - 1].response2.image);
           setTextBox(dialougeTree[counter - 1].response2.agentResponse);
         }
         counter += 1;
@@ -189,7 +220,6 @@ const TextBox = props => {
         setInputBox(true);
       }
       if (validInput) {
-        props.agentSetImage(images.sadAgent);
         setFirstOption(dialougeTree[counter - 1].response1.option);
         setSeconOption(dialougeTree[counter - 1].response2.option);
       }
