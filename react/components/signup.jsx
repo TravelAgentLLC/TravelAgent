@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../stylesheet/Signup.scss';
 
 const Signup = props => {
   const [username, setUsername] = useState('');
@@ -32,7 +33,7 @@ const Signup = props => {
   }
 
   return (
-    <div>
+    <div className = "Scontain">
       <div className='login-form'>
         <h1 className='login-header'>SIGN UP</h1>
         <input

@@ -98,14 +98,20 @@ const TextBox = props => {
   };
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log('bob');
     const input = e.target.input.value;
     setInputBox(false);
-    setTextBox(dialougeTree[counter - 1].response1.agentResponse);
+    if (counter === 0) {
+      setTextBox('Are you excited to travel');
+    } else {
+      setTextBox(dialougeTree[counter - 1].response1.agentResponse);
+    }
     counter += 1;
     setFirstOption(dialougeTree[counter - 1].response1.option);
     setSeconOption(dialougeTree[counter - 1].response2.option);
     inputs.push(inputValue);
     console.log(`This is ${inputs}`);
+
     if (inputs.length === 3) {
       console.log('it worked');
       try {
@@ -179,7 +185,6 @@ const TextBox = props => {
         counter += 1;
         console.log('pressed2');
       } else if (e.code === 'Digit3') {
-        validInput = true;
         console.log('pressed3');
         setInputBox(true);
       }
