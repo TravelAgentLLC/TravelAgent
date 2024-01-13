@@ -1,4 +1,3 @@
-# TravelAgent
 Travel Agent App
 # Important Things to note
 1. the location that u fly out from is the location of the server(ie. i live in stl so when i run the app on my pc all flights are gotten from stl)
