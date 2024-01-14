@@ -3,11 +3,18 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-61dafb"> <img src="https://img.shields.io/badge/Node.js-43853d"> <img src="https://img.shields.io/badge/Express-000000">
-  <img src="https://img.shields.io/badge/HTML-e34c26"> <img src="https://img.shields.io/badge/CSS-563d7c"> <img src="https://img.shields.io/badge/Bcrypt-8a83ad">
-  <img src="https://img.shields.io/badge/Cookies-326ce5"> <img src="https://img.shields.io/badge/MongoDB-4ea94b"> <img src="https://img.shields.io/badge/Mongoose-880000">
-  <img src="https://img.shields.io/badge/Webpack-8dd6f9">
+  <img src="https://img.shields.io/badge/React-61dafb?style=for-the-badge&logo=react&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Node.js-43853d?style=for-the-badge&logo=node.js&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white">
+  <img src="https://img.shields.io/badge/HTML-e34c26?style=for-the-badge"> 
+  <img src="https://img.shields.io/badge/CSS-563d7c?style=for-the-badge"> 
+  <img src="https://img.shields.io/badge/Bcrypt-8a83ad?style=for-the-badge&logo=bcrypt&logoColor=white">
+  <img src="https://img.shields.io/badge/Cookies-326ce5?style=for-the-badge"> 
+  <img src="https://img.shields.io/badge/MongoDB-4ea94b?style=for-the-badge&logo=mongodb&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge"> 
+  <img src="https://img.shields.io/badge/Webpack-8dd6f9?style=for-the-badge&logo=webpack&logoColor=white">
 </p>
+
 
 <h1 align="center">TravelAgent</h1>
 
