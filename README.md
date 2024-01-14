@@ -41,6 +41,7 @@ To use TravelAgent, you will need to:
 - Create a MongoDB cluster and copy the URI.
 - Create a .env file within the root of the project.
 - In the env file, create an ATLAS_URI with the copied URI code from MongoDB Atlas.
+- Run `npm install` in the root directory.
 
 ## Usage
 
