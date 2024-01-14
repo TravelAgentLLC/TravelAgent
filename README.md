@@ -17,7 +17,7 @@ Travel Agent serves as your dedicated travel planning application. Users can eff
 - [Interface & Features](#interface--features)
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
-- [For Future Iterations](#future-iterations)
+- [For Future Iterations](#for-future-iterations)
 - [The TravelAgent Team](#the-TravelAgent-team)
 
 ## Interface & Features
@@ -87,7 +87,7 @@ To use TravelAgent effectively, follow these steps:
   <img src="build/Assets/8.png" alt="Image 8">
 </p>
 
-## For Future Iterations and Important Notes
+## For Future Iterations
 - Ensure the application retrieves flights based on the server's location aligned with the user's departure point.
 - Exercise caution in location selection to prevent errors, favoring city specificity over states for robust performance.
 - Be mindful when setting date ranges to prevent crashes, avoiding the selection of dates too far into the future.
